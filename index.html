@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <title>MINIMAL - Free Bootstrap 3 Theme</title>
+    <title>Juan Blanco fotografías</title>
 
     <!-- Bootstrap core CSS 
     <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
@@ -59,8 +59,10 @@
     <section id="home" name="home"></section>
     <div id="headerwrap">
       <div class="container">
+	<div id = "empty-trick">
+	</div>
 	<div class="logo">
-	  <img src="assets/img/logo.png">
+	  <img id="logo-image" src="assets/img/logo.png">
 	</div>
       </div><!-- /container -->
     </div><!-- /headerwrap -->
@@ -70,11 +72,11 @@
     <div id="f">
       <div class="container">
 	<div class="row">
-	  <h3>Sobre Juan Blanco</h3>
-	  <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
-	  
 	  <!-- INTRO INFORMATIO-->
-	  <div class="col-lg-8 col-lg-offset-2">
+	  <div class="col-lg-8" id = "start_mp">
+	    <h3>Sobre Juan Blanco</h3>
+	    <p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
+
 	    <p>
 	      Nace en Buenos Aires en medio de unos diez millones de
 	      seres desconocidos. Comienza a fotografiarlos para
@@ -135,8 +137,16 @@
 	    </p>
 	    <p><b>René Palacios More.</b>
 	    </p>
-	  </div>								
-	</div>
+	  </div>							
+	  <div>
+	  <div class = "col-md-4">
+	    <span class="visible-lg">
+	      <div >
+		<img id="moving_photo" src="assets/img/C2/F1.jpg" 
+		     class="img-responsive" alt="Responsive image" />
+	      </div>
+	    </span>
+	  </div>
       </div><!-- /container -->
     </div><!-- /f -->
  
@@ -144,43 +154,35 @@
     <div id="f">
       <div class="container">
 	<div class="row">
-	  <div class="row">
-	    <div class="col-md-8">
-	      <div>
-		<img src="assets/img/thumbnails/f1.jpg" 
-		     class="img-responsive" alt="Responsive image">
-		<p></p>
-		<div class="row">
-		  <div class="col-md-4">
-		    <img src="assets/img/C1/F1.jpg" 
-			 class="img-responsive" alt="Responsive image">
-		  </div>
-		  <div class="col-md-4">
-		    <img src="assets/img/C1/F2.jpg" 
-			 class="img-responsive" alt="Responsive image">
-		  </div>
-		  <div class="col-md-4">
-		    <img src="assets/img/C1/F3.jpg" 
-			 class="img-responsive" alt="Responsive image">
-		  </div>
-		</div>
-	      </div>
+	  <div class="col-md-8">
+	    <div>
+	      <img src="assets/img/thumbnails/f1.jpg" id="image_stop"
+		   class="img-responsive" alt="Responsive image">
 	    </div>
-	    <div class="col-md-4">
-	      <div>
-		<img src="assets/img/thumbnails/f2.jpg" alt="Banana"
-		     class="img-responsive" alt="Responsive image">
-	      </div>
-	      <p></p>
-	      <div>
-		<img src="assets/img/thumbnails/f3.jpg" alt="Banana"
-		     class="img-responsive" alt="Responsive image">
-	      </div>
-	    </div>
+	  </div>
+	  <div class="col-md-4">
+	    
+	  </div>
+	</div>
+	<p></p>
+	<div class="row">
+	  <div class="col-md-4">
+	    <img src="assets/img/C1/F1.jpg" 
+		 class="img-responsive" alt="Responsive image" />
+	  </div>
+	  <div class="col-md-4">
+	    <img src="assets/img/C1/F2.jpg" 
+		 class="img-responsive" alt="Responsive image">
+	  </div>
+	  <div class="col-md-4">
+	    <img src="assets/img/C1/F3.jpg" 
+		 class="img-responsive" alt="Responsive image">
 	  </div>
 	</div>
       </div>
     </div>
+
+
     
     <!-- ========== CONTACT SECTION ========== -->
     <section id="contact" name="contact"></section>
@@ -209,7 +211,54 @@
     <script src="assets/js/smoothscroll.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script>
+      var headHeight = $('#headerwrap').outerHeight();
+      var logo_imageHeight = $('#logo-image').outerHeight();
+      empty_space = headHeight-logo_imageHeight-100;
+      var position_mp = $('#moving_photo').offset()['top']; 
 
+      var content_mp = $('#moving_photo').html();
+
+      function logo_pos(){
+        var headHeight = $('#headerwrap').outerHeight();
+        var logo_imageHeight = $('#logo-image').outerHeight();
+        $('#empty-trick').css('height', empty_space + 'px');
+      }
+
+      function parallax(){
+        var scrolled = $(window).scrollTop();
+        if (1.5*scrolled < empty_space) {
+          $('#empty-trick').css('height', 
+		       (empty_space -scrolled) + 'px');
+        }
+      }
+
+      function move_photo(){
+        var scrolled = $(window).scrollTop();
+	var position_mp1 = $('#start_mp').offset()['top']; 
+        var position_about = $('#about').offset()['top']; 
+	var position_portfolio = $('#image_stop').offset()['top'];
+	var photo_size = $('#moving_photo').height;
+	if (scrolled >= position_about && scrolled <= position_portfolio) {    
+	  var new_pos = scrolled - position_about;
+	  $('#moving_photo').css('top', new_pos);
+	  var new_pn = Math.floor(new_pos / 100) % 11;
+          var new_p = 'assets/img/C2/F' + new_pn + '.jpg';						      
+	  $('#moving_photo').attr("src", new_p);
+	}
+      } 
+
+      $(window).scroll(function(e){
+        parallax();
+	move_photo();
+      });
+
+      $(document).ready(function(){
+	$('#moving_photo').css('position', 'absolute');
+        logo_pos();
+	});
+      
+    </script>
 
 </body>
 </html>
