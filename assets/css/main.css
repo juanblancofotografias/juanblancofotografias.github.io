@@ -5,10 +5,11 @@
  * Project Name: Minimal - Free Bootstrap 3 Theme
  * Version: 1.0
  * URL: http://blacktie.co
+ * background-color: #f2f2f2;
  */
 
 body {
-  background-color: #f2f2f2;
+    background: url('../img/background3.png') repeat; 
     font-family: 'EB Garamond', serif;
     font-weight: 300;
     font-size: 16px;
@@ -124,10 +125,10 @@ a:after {
 /* Footer Wrap */
 
 #f {
-	background: #271a11;
-	padding-top: 70px;
-	padding-bottom: 70px;
-	text-align: center
+    background: url('../img/background3.png') repeat; 
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: center
 }
 
 #f h3 {
@@ -173,11 +174,16 @@ a:after {
 	position: absolute;
 	top: 0;
 	left: 60px;
+	opacity: 0.8;
 	background: #271a11;
+	/* background: url('../img/background3.png') repeat; */
 	width: 200px;
 	height: 100%;
 }
 
+.op1 {
+	opacity: 1;
+}
 .menu h1.logo a {
 	font-family: 'Oswald', sans-serif;
 	font-size: 16px;
@@ -311,3 +317,63 @@ a:after {
 }
 
 
+
+#img1 {
+    position:absolute;
+    z-index: 2;
+}
+
+#img2 {
+    position:absolute;
+    z-index: 2;
+}
+
+#img3 {
+    z-index: 1;
+}
+
+#img2 {
+    position:absolute;
+    z-index: 2;
+}
+
+#imglogo {
+    position:absolute;
+    z-index: 3;
+    left:30px;
+}
+
+img.full {
+    max-height:100%; 
+}
+
+p.sobre {
+    text-align:justify;
+}
+
+p.soy {
+    text-align:right;
+    font-size:500%;
+}
+
+p.year {
+    font-size:150%;
+    text-align: left;
+    font-weight:bold;
+    margin-bottom: 0px;
+}
+
+p.cv {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.modal {overflow: auto;} 
+
+.modal-dialog {
+
+}
+
+.modal-header {
+    
+}
