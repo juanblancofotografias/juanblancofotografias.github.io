@@ -139,10 +139,11 @@ a:after {
 }
 
 #f i {
-	font-size: 8px;
-	color: #fff;
+    font-size: 8px;
+    color: #fff;
     padding: 3px;
 }
+
 
 #f p {
 	font-size: 20px;
