@@ -27,3 +27,6 @@ __pychache__
 *~
 #*#
 .#*
+
+assets/img/*/Thumbs.db
+assets/img/*/*/Thumbs.db
