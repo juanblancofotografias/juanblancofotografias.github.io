@@ -140,7 +140,7 @@ a:after {
 
 #f i {
     font-size: 8px;
-    color: #fff;
+    color: #271a11;
     padding: 3px;
 }
 
@@ -175,11 +175,11 @@ a:after {
 	position: absolute;
 	top: 0;
 	left: 60px;
-	opacity: 0.8;
-	background: #271a11;
+	background: #52605d;
 	/* background: url('../img/background3.png') repeat; */
 	width: 200px;
 	height: 100%;
+  opacity: 0.8;
 }
 
 .op1 {
@@ -192,7 +192,7 @@ a:after {
 	letter-spacing: 0.15em;
 	line-height: 40px;
 	text-transform: uppercase;
-	color: #ffffff;
+	color: #040a0dœ;
 	margin-top: 20px;
 }
 
@@ -207,7 +207,7 @@ a:after {
 
 .menu a {
 	margin-left: 20px;
-	color: #808080;
+	color: #040a0d;
 	display: block;
 	font-size: 12px;
 	font-weight: 700;
