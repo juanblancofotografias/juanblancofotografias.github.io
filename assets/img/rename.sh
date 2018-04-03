@@ -6,7 +6,7 @@ for i in *.jpg; do
 done
 
 mkdir thumbnails
-for i in $(ls *.jpg); do convert -scale 100 $i thumbnails/$i; done
+for i in $(ls *.jpg); do convert -scale 100x100 $i thumbnails/$i; done
 
 for i in *.jpg; do
   printf "<a href='assets/img/C15/$i' data-gallery>\n"
